@@ -1,6 +1,6 @@
 //
-//  HotspotClientTests.swift
-//  HotspotClientTests
+//  HEHotspotClientTests.swift
+//  HEHotspotClientTests
 //
 //  Created by Marko Engelman on 13/08/2021.
 //
@@ -9,7 +9,7 @@ import XCTest
 import NetworkExtension
 @testable import HotspotClient
 
-class HotspotClientTests: XCTestCase {
+class HEHotspotClientTests: XCTestCase {
   func test_init_hasNoSideEffectsOnHotspotManger() {
     let manager = NEHotspotConfigurationManager()
     let sut = makeSUT(manager: manager)
@@ -51,7 +51,7 @@ class HotspotClientTests: XCTestCase {
 }
 
 // MARK: - Private
-private extension HotspotClientTests {
+private extension HEHotspotClientTests {
   var anyConfiguration: HotspotConfiguration {
     HotspotConfiguration(ssid: "anySSID", password: "anyPassword", isWEP: false)
   }
