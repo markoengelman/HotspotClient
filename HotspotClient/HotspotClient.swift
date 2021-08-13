@@ -13,6 +13,12 @@ struct HotspotConfiguration {
   let isWEP: Bool
 }
 
+enum HotspotClientError: Error {
+  case alreadyConnected
+  case userDeniedConnection
+  case other(error: NSError)
+}
+
 protocol HotspotClient {
   typealias Result = Swift.Result<Void, Error>
   
