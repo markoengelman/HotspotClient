@@ -10,6 +10,7 @@
 		53A44B8426C6F5380044BD0C /* HotspotClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A44B7A26C6F5380044BD0C /* HotspotClient.framework */; };
 		53A44B8926C6F5390044BD0C /* HotspotClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44B8826C6F5380044BD0C /* HotspotClientTests.swift */; };
 		53A44B8B26C6F5390044BD0C /* HotspotClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A44B7D26C6F5380044BD0C /* HotspotClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53A44B9526C6FCE40044BD0C /* HotspotClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44B9426C6FCE40044BD0C /* HotspotClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		53A44B8326C6F5380044BD0C /* HotspotClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotspotClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A44B8826C6F5380044BD0C /* HotspotClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotClientTests.swift; sourceTree = "<group>"; };
 		53A44B8A26C6F5390044BD0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53A44B9426C6FCE40044BD0C /* HotspotClient.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = HotspotClient.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				53A44B7D26C6F5380044BD0C /* HotspotClient.h */,
+				53A44B9426C6FCE40044BD0C /* HotspotClient.swift */,
 				53A44B7E26C6F5380044BD0C /* Info.plist */,
 			);
 			path = HotspotClient;
@@ -150,6 +153,7 @@
 				TargetAttributes = {
 					53A44B7926C6F5380044BD0C = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					53A44B8226C6F5380044BD0C = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -197,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53A44B9526C6FCE40044BD0C /* HotspotClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +352,7 @@
 		53A44B8F26C6F5390044BD0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -364,6 +370,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.markoengelman.HotspotClient;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -371,6 +378,7 @@
 		53A44B9026C6F5390044BD0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -395,6 +403,7 @@
 		53A44B9226C6F5390044BD0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 54PNV7AZ7G;
@@ -413,6 +422,7 @@
 		53A44B9326C6F5390044BD0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 54PNV7AZ7G;
