@@ -79,8 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				53A44B7D26C6F5380044BD0C /* HotspotClient.h */,
-				53A44B9426C6FCE40044BD0C /* HotspotClient.swift */,
-				53A44B9826C7073A0044BD0C /* Infrastructure */,
+				53A44B9926C713BD0044BD0C /* HotspotClient */,
 				53A44B7E26C6F5380044BD0C /* Info.plist */,
 			);
 			path = HotspotClient;
@@ -101,6 +100,15 @@
 				53A44B9626C7070F0044BD0C /* HEHotspotClient.swift */,
 			);
 			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		53A44B9926C713BD0044BD0C /* HotspotClient */ = {
+			isa = PBXGroup;
+			children = (
+				53A44B9426C6FCE40044BD0C /* HotspotClient.swift */,
+				53A44B9826C7073A0044BD0C /* Infrastructure */,
+			);
+			path = HotspotClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
