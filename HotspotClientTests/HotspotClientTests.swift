@@ -9,25 +9,6 @@ import XCTest
 import NetworkExtension
 @testable import HotspotClient
 
-class NEHotspotClient: HotspotClient {
-  let hotspotManager: NEHotspotConfigurationManager
-  
-  init(hotspotManager: NEHotspotConfigurationManager) {
-    self.hotspotManager = hotspotManager
-  }
-  
-  func connect(with cofiguration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
-    let hotspotConfiguration = NEHotspotConfiguration(ssid: cofiguration.ssid, passphrase: cofiguration.password, isWEP: cofiguration.isWEP)
-    hotspotManager.apply(hotspotConfiguration) { error in
-      completion(Result { if let error = error { throw error } })
-    }
-  }
-  
-  func disconnect(from SSID: String) {
-    hotspotManager.removeConfiguration(forSSID: SSID)
-  }
-}
-
 class HotspotClientTests: XCTestCase {
   func test_init_hasNoSideEffectsOnHotspotManger() {
     let manager = NEHotspotConfigurationManager()

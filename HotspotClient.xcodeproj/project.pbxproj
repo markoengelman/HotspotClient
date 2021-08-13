@@ -11,6 +11,7 @@
 		53A44B8926C6F5390044BD0C /* HotspotClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44B8826C6F5380044BD0C /* HotspotClientTests.swift */; };
 		53A44B8B26C6F5390044BD0C /* HotspotClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A44B7D26C6F5380044BD0C /* HotspotClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53A44B9526C6FCE40044BD0C /* HotspotClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44B9426C6FCE40044BD0C /* HotspotClient.swift */; };
+		53A44B9726C7070F0044BD0C /* HEHotspotClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44B9626C7070F0044BD0C /* HEHotspotClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		53A44B8826C6F5380044BD0C /* HotspotClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotClientTests.swift; sourceTree = "<group>"; };
 		53A44B8A26C6F5390044BD0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53A44B9426C6FCE40044BD0C /* HotspotClient.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = HotspotClient.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
+		53A44B9626C7070F0044BD0C /* HEHotspotClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEHotspotClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			children = (
 				53A44B7D26C6F5380044BD0C /* HotspotClient.h */,
 				53A44B9426C6FCE40044BD0C /* HotspotClient.swift */,
+				53A44B9826C7073A0044BD0C /* Infrastructure */,
 				53A44B7E26C6F5380044BD0C /* Info.plist */,
 			);
 			path = HotspotClient;
@@ -90,6 +93,14 @@
 				53A44B8A26C6F5390044BD0C /* Info.plist */,
 			);
 			path = HotspotClientTests;
+			sourceTree = "<group>";
+		};
+		53A44B9826C7073A0044BD0C /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				53A44B9626C7070F0044BD0C /* HEHotspotClient.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53A44B9526C6FCE40044BD0C /* HotspotClient.swift in Sources */,
+				53A44B9726C7070F0044BD0C /* HEHotspotClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
