@@ -42,6 +42,12 @@ class HotspotClientTests: XCTestCase {
     wait(for: [exp], timeout: 1.0)
     XCTAssertFalse(SSIDs.contains(configuration.ssid))
   }
+  
+  func test_mapError_mapsHotspotErrors() {
+    XCTAssertEqual(NEHotspotClient.mapError(error: makeError(for: .alreadyAssociated)), .alreadyConnected)
+    XCTAssertEqual(NEHotspotClient.mapError(error: makeError(for: .userDenied)), .userDeniedConnection)
+    XCTAssertEqual(NEHotspotClient.mapError(error: makeError(for: .applicationIsNotInForeground)), .other(error: makeError(for: .applicationIsNotInForeground)))
+  }
 }
 
 // MARK: - Private
@@ -53,5 +59,9 @@ private extension HotspotClientTests {
   func makeSUT(manager: NEHotspotConfigurationManager = .shared) -> NEHotspotClient {
     let sut = NEHotspotClient(hotspotManager: manager)
     return sut
+  }
+  
+  func makeError(for code: NEHotspotConfigurationError) -> NSError {
+    NSError(domain: NEHotspotConfigurationErrorDomain, code: code.rawValue, userInfo: [:])
   }
 }

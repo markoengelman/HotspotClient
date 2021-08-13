@@ -13,7 +13,7 @@ struct HotspotConfiguration {
   let isWEP: Bool
 }
 
-enum HotspotClientError: Error {
+enum HotspotClientError: Error, Equatable {
   case alreadyConnected
   case userDeniedConnection
   case other(error: NSError)

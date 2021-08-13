@@ -14,6 +14,14 @@ class NEHotspotClient {
   init(hotspotManager: NEHotspotConfigurationManager) {
     self.hotspotManager = hotspotManager
   }
+  
+  static func mapError(error: NSError) -> HotspotClientError {
+    switch error.code {
+    case NEHotspotConfigurationError.alreadyAssociated.rawValue: return .alreadyConnected
+    case NEHotspotConfigurationError.userDenied.rawValue: return .userDeniedConnection
+    default: return .other(error: error)
+    }
+  }
 }
 
 // MARK: - HotspotClient
