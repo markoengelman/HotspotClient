@@ -29,7 +29,7 @@ extension NEHotspotClient: HotspotClient {
   func connect(with cofiguration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
     let hotspotConfiguration = NEHotspotConfiguration(ssid: cofiguration.ssid, passphrase: cofiguration.password, isWEP: cofiguration.isWEP)
     hotspotManager.apply(hotspotConfiguration) { error in
-      completion(Result { if let error = error { throw error } })
+      completion(Result { if let error = error { throw Self.mapError(error: error as NSError) } })
     }
   }
   
