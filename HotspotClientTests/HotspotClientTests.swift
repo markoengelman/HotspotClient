@@ -17,7 +17,10 @@ class NEHotspotClient: HotspotClient {
   }
   
   func connect(with cofiguration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
-    
+    let hotspotConfiguration = NEHotspotConfiguration(ssid: cofiguration.ssid, passphrase: cofiguration.password, isWEP: cofiguration.isWEP)
+    hotspotManager.apply(hotspotConfiguration) { error in
+      completion(Result { if let error = error { throw error } })
+    }
   }
   
   func disconnect(from SSID: String) {
@@ -30,6 +33,16 @@ class HotspotClientTests: XCTestCase {
     let manager = NEHotspotConfigurationManager()
     let sut = makeSUT(manager: manager)
     XCTAssertEqual(manager, sut.hotspotManager)
+  }
+  
+  func test_connect_eventuallyDeliversResult() {
+    let sut = makeSUT()
+    let configuration = HotspotConfiguration(ssid: "anySSID", password: "anyPassword", isWEP: false)
+    let exp = expectation(description: "Waiting for result")
+    sut.connect(with: configuration) { result in
+      exp.fulfill()
+    }
+    wait(for: [exp], timeout: 1.0)
   }
 }
 
