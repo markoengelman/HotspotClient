@@ -6,9 +6,16 @@
 //
 
 import XCTest
+import NetworkExtension
 @testable import HotspotClient
 
 class NEHotspotClient: HotspotClient {
+  let hotspotManager: NEHotspotConfigurationManager
+  
+  init(hotspotManager: NEHotspotConfigurationManager) {
+    self.hotspotManager = hotspotManager
+  }
+  
   func connect(with cofiguration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
     
   }
@@ -19,5 +26,17 @@ class NEHotspotClient: HotspotClient {
 }
 
 class HotspotClientTests: XCTestCase {
-    
+  func test_init_hasNoSideEffectsOnHotspotManger() {
+    let manager = NEHotspotConfigurationManager()
+    let sut = makeSUT(manager: manager)
+    XCTAssertEqual(manager, sut.hotspotManager)
+  }
+}
+
+// MARK: - Private
+private extension HotspotClientTests {
+  func makeSUT(manager: NEHotspotConfigurationManager = .shared) -> NEHotspotClient {
+    let sut = NEHotspotClient(hotspotManager: manager)
+    return sut
+  }
 }
