@@ -10,3 +10,10 @@ import Foundation
 class SystemSSIDLoader {
   
 }
+
+// MARK: - SSIDLoader
+extension SystemSSIDLoader: SSIDLoader {
+  func load(completion: @escaping ([String]) -> Void) {
+    
+  }
+}
