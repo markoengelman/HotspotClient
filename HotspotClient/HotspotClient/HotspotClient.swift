@@ -22,6 +22,6 @@ enum HotspotClientError: Error, Equatable {
 protocol HotspotClient {
   typealias Result = Swift.Result<Void, Error>
   
-  func connect(with cofiguration: HotspotConfiguration, completion: @escaping (Result) -> Void)
+  func connect(with configuration: HotspotConfiguration, completion: @escaping (Result) -> Void)
   func disconnect(from SSID: String)
 }

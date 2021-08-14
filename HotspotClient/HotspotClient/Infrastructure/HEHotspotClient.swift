@@ -26,8 +26,8 @@ class NEHotspotClient {
 
 // MARK: - HotspotClient
 extension NEHotspotClient: HotspotClient {
-  func connect(with cofiguration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
-    let hotspotConfiguration = NEHotspotConfiguration(ssid: cofiguration.ssid, passphrase: cofiguration.password, isWEP: cofiguration.isWEP)
+  func connect(with configuration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
+    let hotspotConfiguration = NEHotspotConfiguration(ssid: configuration.ssid, passphrase: configuration.password, isWEP: configuration.isWEP)
     hotspotManager.apply(hotspotConfiguration) { error in
       completion(Result { if let error = error { throw Self.mapError(error: error as NSError) } })
     }
