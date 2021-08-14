@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		53A44B8426C6F5380044BD0C /* HotspotClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A44B7A26C6F5380044BD0C /* HotspotClient.framework */; };
 		53A44B8926C6F5390044BD0C /* HEHotspotClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44B8826C6F5380044BD0C /* HEHotspotClientTests.swift */; };
-		53A44B8B26C6F5390044BD0C /* HotspotClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A44B7D26C6F5380044BD0C /* HotspotClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53A44B9526C6FCE40044BD0C /* HotspotClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44B9426C6FCE40044BD0C /* HotspotClient.swift */; };
 		53A44B9726C7070F0044BD0C /* HEHotspotClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44B9626C7070F0044BD0C /* HEHotspotClient.swift */; };
 		53A44B9B26C714610044BD0C /* SSIDLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44B9A26C714610044BD0C /* SSIDLoader.swift */; };
@@ -29,7 +28,6 @@
 
 /* Begin PBXFileReference section */
 		53A44B7A26C6F5380044BD0C /* HotspotClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HotspotClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		53A44B7D26C6F5380044BD0C /* HotspotClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotspotClient.h; sourceTree = "<group>"; };
 		53A44B7E26C6F5380044BD0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53A44B8326C6F5380044BD0C /* HotspotClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotspotClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A44B8826C6F5380044BD0C /* HEHotspotClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEHotspotClientTests.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 		53A44B7C26C6F5380044BD0C /* HotspotClient */ = {
 			isa = PBXGroup;
 			children = (
-				53A44B7D26C6F5380044BD0C /* HotspotClient.h */,
 				53A44B9926C713BD0044BD0C /* HotspotClient */,
 				53A44B9C26C714850044BD0C /* SSIDLoader */,
 				53A44B7E26C6F5380044BD0C /* Info.plist */,
@@ -159,7 +156,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53A44B8B26C6F5390044BD0C /* HotspotClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
