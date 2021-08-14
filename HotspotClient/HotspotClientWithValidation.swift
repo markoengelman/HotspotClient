@@ -11,6 +11,10 @@ class HotspotClientWithValidation {
   let client: HotspotClient
   let ssidLoader: SSIDLoader
   
+  enum ValidationError: Error {
+    case couldNotValidateSSID
+  }
+  
   init(client: HotspotClient, ssidLoader: SSIDLoader) {
     self.client = client
     self.ssidLoader = ssidLoader
@@ -24,8 +28,9 @@ extension HotspotClientWithValidation: HotspotClient {
       switch result {
       case .success:
         self?.ssidLoader.load { SSIDs in
-          guard SSIDs.contains(configuration.ssid) else { return }
-          completion(.success(()))
+          SSIDs.contains(configuration.ssid)
+            ? completion(.success(()))
+            : completion(.failure(ValidationError.couldNotValidateSSID))
         }
         
       case .failure:

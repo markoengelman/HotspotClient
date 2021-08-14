@@ -42,14 +42,14 @@ class HotspotClientWithValidationTests: XCTestCase {
     XCTAssertFalse(loader.loadTriggered)
   }
   
-  func test_connect_deliversSuccess_onClientSuccess_andLoadedSSID() throws {
+  func test_connect_deliversSuccess_onClientSuccess_andMatchingSSID() throws {
     let (sut, client, loader) = makeSUT()
     let configuration = anyConfiguration
     client.complete(with: .success(()))
     loader.complete(with: [configuration.ssid])
     
     var result: HotspotClient.Result?
-    let exp = expectation(description: "Waiting for connect")
+    let exp = expectation(description: "Waiting for result")
     sut.connect(with: configuration) { receivedResult in
       result = receivedResult
       exp.fulfill()
@@ -57,6 +57,23 @@ class HotspotClientWithValidationTests: XCTestCase {
     wait(for: [exp], timeout: 1.0)
     
     XCTAssertNoThrow(try result?.get())
+  }
+  
+  func test_connect_deliversError_onClientSuccess_andNoMatchingSSID() throws {
+    let (sut, client, loader) = makeSUT()
+    let configuration = anyConfiguration
+    client.complete(with: .success(()))
+    loader.complete(with: ["Another\(configuration.ssid)"])
+    
+    var result: HotspotClient.Result?
+    let exp = expectation(description: "Waiting for result")
+    sut.connect(with: configuration) { receivedResult in
+      result = receivedResult
+      exp.fulfill()
+    }
+    wait(for: [exp], timeout: 1.0)
+    
+    XCTAssertThrowsError(try result?.get())
   }
 }
 
