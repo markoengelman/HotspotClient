@@ -30,6 +30,17 @@ class HotspotClientWithValidationTests: XCTestCase {
     sut.disconnect(from: ssid)
     XCTAssertEqual(client.disconnectedSSID, ssid)
   }
+  
+  func test_connect_hasNoSideEffectsOnSSIDLoader_onClientFailure() {
+    let (sut, client, loader) = makeSUT()
+    client.complete(with: .failure(anyError))
+    
+    let exp = expectation(description: "Waiting for connect")
+    sut.connect(with: anyConfiguration) { _ in exp.fulfill() }
+    wait(for: [exp], timeout: 1.0)
+    
+    XCTAssertFalse(loader.loadTriggered)
+  }
 }
 
 // MARK: - Private
@@ -38,17 +49,29 @@ private extension HotspotClientWithValidationTests {
     HotspotConfiguration(ssid: "anySSID", password: "anyPassword", isWEP: false)
   }
   
+  var anyError: NSError {
+    NSError(domain: "", code: 1, userInfo: nil)
+  }
+  
   class HotspotClientMock: HotspotClient {
     var configuration: HotspotConfiguration?
+    var result: (HotspotClient.Result)?
     var disconnectedSSID: String?
     var connectTriggered: Bool { configuration != nil }
     
     func connect(with configuration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
       self.configuration = configuration
+      if let result = result {
+        completion(result)
+      }
     }
     
     func disconnect(from SSID: String) {
       disconnectedSSID = SSID
+    }
+    
+    func complete(with result: HotspotClient.Result) {
+      self.result = result
     }
   }
   
