@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HotspotClientWithValidation {
+public class HotspotClientWithValidation {
   let client: HotspotClient
   let ssidLoader: SSIDLoader
   let policy: (_ retryCount: Int) -> Bool
@@ -16,9 +16,9 @@ class HotspotClientWithValidation {
     case couldNotValidateSSID
   }
   
-  typealias Completion = (HotspotClient.Result) -> Void
+  public typealias Completion = (HotspotClient.Result) -> Void
   
-  init(client: HotspotClient,
+  public init(client: HotspotClient,
        ssidLoader: SSIDLoader,
        policy: @escaping (_ retryCount: Int) -> Bool = HotspotClientValidationPolicy.validateRetryCount) {
     self.client = client
@@ -29,7 +29,7 @@ class HotspotClientWithValidation {
 
 // MARK: - HotspotClient
 extension HotspotClientWithValidation: HotspotClient {
-  func connect(with configuration: HotspotConfiguration, completion: @escaping Completion) {
+  public func connect(with configuration: HotspotConfiguration, completion: @escaping Completion) {
     client.connect(with: configuration) { [weak self] result in
       switch result {
       case .success:
@@ -41,7 +41,7 @@ extension HotspotClientWithValidation: HotspotClient {
     }
   }
   
-  func disconnect(from SSID: String) {
+  public func disconnect(from SSID: String) {
     client.disconnect(from: SSID)
   }
 }

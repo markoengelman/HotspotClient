@@ -8,10 +8,10 @@
 import Foundation
 import NetworkExtension
 
-class NEHotspotClient {
+public class NEHotspotClient {
   let hotspotManager: NEHotspotConfigurationManager
   
-  init(hotspotManager: NEHotspotConfigurationManager) {
+  public init(hotspotManager: NEHotspotConfigurationManager) {
     self.hotspotManager = hotspotManager
   }
   
@@ -26,14 +26,14 @@ class NEHotspotClient {
 
 // MARK: - HotspotClient
 extension NEHotspotClient: HotspotClient {
-  func connect(with configuration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
+  public func connect(with configuration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
     let hotspotConfiguration = NEHotspotConfiguration(ssid: configuration.ssid, passphrase: configuration.password, isWEP: configuration.isWEP)
     hotspotManager.apply(hotspotConfiguration) { error in
       completion(Result { if let error = error { throw Self.mapError(error: error as NSError) } })
     }
   }
   
-  func disconnect(from SSID: String) {
+  public func disconnect(from SSID: String) {
     hotspotManager.removeConfiguration(forSSID: SSID)
   }
 }

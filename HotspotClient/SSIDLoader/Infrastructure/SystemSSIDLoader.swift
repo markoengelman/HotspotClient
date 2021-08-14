@@ -9,7 +9,9 @@ import Foundation
 import SystemConfiguration.CaptiveNetwork
 import NetworkExtension
 
-class SystemSSIDLoader {
+public class SystemSSIDLoader {
+  public init() { }
+  
   @available(iOS, deprecated: 14.0, obsoleted: 14.0, message: "API is deprecated and obsoleted in iOS 14.0, use 'fetchCurrentNetwork' instead.")
   func compyInterfaces() -> [String] {
     guard let interfaceNames = CNCopySupportedInterfaces() as? [String] else { return [] }
@@ -32,7 +34,7 @@ class SystemSSIDLoader {
 
 // MARK: - SSIDLoader
 extension SystemSSIDLoader: SSIDLoader {
-  func load(completion: @escaping ([String]) -> Void) {
+  public func load(completion: @escaping ([String]) -> Void) {
     if #available(iOS 14.0, *) {
       fetchCurrentNetwork(completion: completion)
     } else {
