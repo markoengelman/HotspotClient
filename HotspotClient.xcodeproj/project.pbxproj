@@ -87,8 +87,8 @@
 		53A44B7026C6F5380044BD0C = {
 			isa = PBXGroup;
 			children = (
-				53A44B7C26C6F5380044BD0C /* HotspotClient */,
-				53A44B8726C6F5380044BD0C /* HotspotClientTests */,
+				53A44B7C26C6F5380044BD0C /* Sources */,
+				53A44B8726C6F5380044BD0C /* Tests */,
 				53A44B7B26C6F5380044BD0C /* Products */,
 			);
 			indentWidth = 2;
@@ -105,7 +105,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		53A44B7C26C6F5380044BD0C /* HotspotClient */ = {
+		53A44B7C26C6F5380044BD0C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				536CA3FF26C812EB000B6A76 /* HotspotClientWithValidation */,
@@ -113,10 +113,10 @@
 				53A44B9C26C714850044BD0C /* SSIDLoader */,
 				53A44B7E26C6F5380044BD0C /* Info.plist */,
 			);
-			path = HotspotClient;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		53A44B8726C6F5380044BD0C /* HotspotClientTests */ = {
+		53A44B8726C6F5380044BD0C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				536CA40026C812FA000B6A76 /* HotspotClientWithValidation */,
@@ -124,7 +124,7 @@
 				53A44BA026C7B6F20044BD0C /* SSIDLoader */,
 				53A44B8A26C6F5390044BD0C /* Info.plist */,
 			);
-			path = HotspotClientTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		53A44B9826C7073A0044BD0C /* Infrastructure */ = {
@@ -450,7 +450,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = HotspotClient/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -476,7 +476,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = HotspotClient/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -497,7 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 54PNV7AZ7G;
-				INFOPLIST_FILE = HotspotClientTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -516,7 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 54PNV7AZ7G;
-				INFOPLIST_FILE = HotspotClientTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
