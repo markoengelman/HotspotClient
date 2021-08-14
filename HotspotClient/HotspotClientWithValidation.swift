@@ -10,6 +10,7 @@ import Foundation
 class HotspotClientWithValidation {
   let client: HotspotClient
   let ssidLoader: SSIDLoader
+  let policy: (_ retryCount: Int) -> Bool
   
   enum ValidationError: Error {
     case couldNotValidateSSID
@@ -17,9 +18,12 @@ class HotspotClientWithValidation {
   
   typealias Completion = (HotspotClient.Result) -> Void
   
-  init(client: HotspotClient, ssidLoader: SSIDLoader) {
+  init(client: HotspotClient,
+       ssidLoader: SSIDLoader,
+       policy: @escaping (_ retryCount: Int) -> Bool = HotspotClientValidationPolicy.validateRetryCount) {
     self.client = client
     self.ssidLoader = ssidLoader
+    self.policy = policy
   }
 }
 
@@ -52,7 +56,7 @@ private extension HotspotClientWithValidation {
     ssidLoader.load { [weak self] SSIDs in
       if SSIDs.contains(configuration.ssid) {
         completion(.success(()))
-      } else if HotspotClientValidationPolicy.validateRetryCount(against: retryCount) {
+      } else if let policy = self?.policy, policy(retryCount) {
         self?.retry(with: retryCount + 1, configuration: configuration, completion: completion)
       } else {
         completion(.failure(ValidationError.couldNotValidateSSID))
