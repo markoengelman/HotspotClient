@@ -22,6 +22,6 @@ extension HotspotClientWithValidation: HotspotClient {
   }
   
   func disconnect(from SSID: String) {
-    
+    client.disconnect(from: SSID)
   }
 }

@@ -19,6 +19,12 @@ class HotspotClientWithValidationTests: XCTestCase {
     sut.connect(with: anyConfiguration) { _ in }
     XCTAssertTrue(client.connectTriggered)
   }
+  
+  func test_disconnect_triggers_client() {
+    let (sut, client) = makeSUT()
+    sut.disconnect(from: anyConfiguration.ssid)
+    XCTAssertTrue(client.disconnectTriggered)
+  }
 }
 
 // MARK: - Private
@@ -29,13 +35,14 @@ private extension HotspotClientWithValidationTests {
   
   class HotspotClientMock: HotspotClient {
     var connectTriggered: Bool = false
+    var disconnectTriggered: Bool = false
     
     func connect(with cofiguration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
       connectTriggered = true
     }
     
     func disconnect(from SSID: String) {
-      
+      disconnectTriggered = true
     }
   }
   
