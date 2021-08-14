@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol SSIDLoader {
+public protocol SSIDLoader {
   func load(completion: @escaping ([String]) -> Void)
 }

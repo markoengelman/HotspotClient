@@ -7,10 +7,12 @@
 
 import Foundation
 
-final class HotspotClientValidationPolicy {
-  static let maxRetryCount = 3
+public final class HotspotClientValidationPolicy {
+  private init() { }
   
-  static func validateRetryCount(against currentCount: Int) -> Bool {
+  public static let maxRetryCount = 3
+  
+  public static func validateRetryCount(against currentCount: Int) -> Bool {
     return maxRetryCount >= currentCount
   }
 }
