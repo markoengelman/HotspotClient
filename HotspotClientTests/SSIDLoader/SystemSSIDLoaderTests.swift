@@ -6,7 +6,16 @@
 //
 
 import XCTest
+@testable import HotspotClient
 
 class SystemSSIDLoaderTests: XCTestCase {
 
+}
+
+// MARK: - Private
+private extension SystemSSIDLoaderTests {
+  func makeSUT() -> SystemSSIDLoader {
+    let sut = SystemSSIDLoader()
+    return sut
+  }
 }
