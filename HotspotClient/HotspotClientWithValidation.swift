@@ -8,7 +8,11 @@
 import Foundation
 
 class HotspotClientWithValidation {
+  let client: HotspotClient
   
+  init(client: HotspotClient) {
+    self.client = client
+  }
 }
 
 // MARK: - HotspotClient
