@@ -27,11 +27,7 @@ extension HotspotClientWithValidation: HotspotClient {
     client.connect(with: configuration) { [weak self] result in
       switch result {
       case .success:
-        self?.ssidLoader.load { SSIDs in
-          SSIDs.contains(configuration.ssid)
-            ? completion(.success(()))
-            : completion(.failure(ValidationError.couldNotValidateSSID))
-        }
+        self?.findMatchingSSID(from: configuration, completion: completion)
         
       case .failure:
         completion(result)
@@ -41,5 +37,16 @@ extension HotspotClientWithValidation: HotspotClient {
   
   func disconnect(from SSID: String) {
     client.disconnect(from: SSID)
+  }
+}
+
+// MARK: - Private
+private extension HotspotClientWithValidation {
+  func findMatchingSSID(from configuration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
+    ssidLoader.load { SSIDs in
+      SSIDs.contains(configuration.ssid)
+        ? completion(.success(()))
+        : completion(.failure(ValidationError.couldNotValidateSSID))
+    }
   }
 }
