@@ -13,10 +13,20 @@ class HotspotClientWithValidationTests: XCTestCase {
     let (_, client) = makeSUT()
     XCTAssertFalse(client.connectTriggered)
   }
+  
+  func test_connect_triggers_client() {
+    let (sut, client) = makeSUT()
+    sut.connect(with: anyConfiguration) { _ in }
+    XCTAssertTrue(client.connectTriggered)
+  }
 }
 
 // MARK: - Private
 private extension HotspotClientWithValidationTests {
+  var anyConfiguration: HotspotConfiguration {
+    HotspotConfiguration(ssid: "anySSID", password: "anyPassword", isWEP: false)
+  }
+  
   class HotspotClientMock: HotspotClient {
     var connectTriggered: Bool = false
     

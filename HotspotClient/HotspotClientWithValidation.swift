@@ -18,7 +18,7 @@ class HotspotClientWithValidation {
 // MARK: - HotspotClient
 extension HotspotClientWithValidation: HotspotClient {
   func connect(with cofiguration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
-    
+    client.connect(with: cofiguration, completion: completion)
   }
   
   func disconnect(from SSID: String) {
