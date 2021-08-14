@@ -16,6 +16,7 @@
 		53A44BA226C7B7320044BD0C /* SystemSSIDLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44BA126C7B7320044BD0C /* SystemSSIDLoader.swift */; };
 		53A44BA526C7CB410044BD0C /* HotspotClientWithValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44BA426C7CB410044BD0C /* HotspotClientWithValidation.swift */; };
 		53A44BA726C7CBA80044BD0C /* HotspotClientWithValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44BA626C7CBA80044BD0C /* HotspotClientWithValidationTests.swift */; };
+		53A44BA926C808620044BD0C /* HotspotClientValidationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44BA826C808620044BD0C /* HotspotClientValidationPolicy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		53A44BA126C7B7320044BD0C /* SystemSSIDLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSSIDLoader.swift; sourceTree = "<group>"; };
 		53A44BA426C7CB410044BD0C /* HotspotClientWithValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotClientWithValidation.swift; sourceTree = "<group>"; };
 		53A44BA626C7CBA80044BD0C /* HotspotClientWithValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotClientWithValidationTests.swift; sourceTree = "<group>"; };
+		53A44BA826C808620044BD0C /* HotspotClientValidationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotClientValidationPolicy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				53A44BA426C7CB410044BD0C /* HotspotClientWithValidation.swift */,
+				53A44BA826C808620044BD0C /* HotspotClientValidationPolicy.swift */,
 				53A44B9926C713BD0044BD0C /* HotspotClient */,
 				53A44B9C26C714850044BD0C /* SSIDLoader */,
 				53A44B7E26C6F5380044BD0C /* Info.plist */,
@@ -268,6 +271,7 @@
 				53A44B9526C6FCE40044BD0C /* HotspotClient.swift in Sources */,
 				53A44B9726C7070F0044BD0C /* HEHotspotClient.swift in Sources */,
 				53A44BA526C7CB410044BD0C /* HotspotClientWithValidation.swift in Sources */,
+				53A44BA926C808620044BD0C /* HotspotClientValidationPolicy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
