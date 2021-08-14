@@ -9,9 +9,11 @@ import Foundation
 
 class HotspotClientWithValidation {
   let client: HotspotClient
+  let ssidLoader: SSIDLoader
   
-  init(client: HotspotClient) {
+  init(client: HotspotClient, ssidLoader: SSIDLoader) {
     self.client = client
+    self.ssidLoader = ssidLoader
   }
 }
 

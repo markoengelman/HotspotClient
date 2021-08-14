@@ -9,13 +9,14 @@ import XCTest
 @testable import HotspotClient
 
 class HotspotClientWithValidationTests: XCTestCase {
-  func test_init_hasNoSideEffects_onClient() {
-    let (_, client) = makeSUT()
+  func test_init_hasNoSideEffects_onClient_andSSIDLoader() {
+    let (_, client, loader) = makeSUT()
     XCTAssertFalse(client.connectTriggered)
+    XCTAssertFalse(loader.loadTriggered)
   }
   
   func test_connect_hasNoSideEffectsOnConfiguration() {
-    let (sut, client) = makeSUT()
+    let (sut, client, _) = makeSUT()
     let configuration = anyConfiguration
     sut.connect(with: configuration) { _ in }
     XCTAssertEqual(client.configuration?.password, configuration.password)
@@ -24,7 +25,7 @@ class HotspotClientWithValidationTests: XCTestCase {
   }
   
   func test_disconnect_hasNoSideEffectsOnSSID() {
-    let (sut, client) = makeSUT()
+    let (sut, client, _) = makeSUT()
     let ssid = anyConfiguration.ssid
     sut.disconnect(from: ssid)
     XCTAssertEqual(client.disconnectedSSID, ssid)
@@ -51,9 +52,18 @@ private extension HotspotClientWithValidationTests {
     }
   }
   
-  func makeSUT() -> (HotspotClientWithValidation, HotspotClientMock) {
+  class SSIDLoaderMock: SSIDLoader {
+    var loadTriggered: Bool = false
+    
+    func load(completion: @escaping ([String]) -> Void) {
+      loadTriggered = true
+    }
+  }
+  
+  func makeSUT() -> (HotspotClientWithValidation, HotspotClientMock, SSIDLoaderMock) {
     let client = HotspotClientMock()
-    let sut = HotspotClientWithValidation(client: client)
-    return (sut, client)
+    let loader = SSIDLoaderMock()
+    let sut = HotspotClientWithValidation(client: client, ssidLoader: loader)
+    return (sut, client, loader)
   }
 }
