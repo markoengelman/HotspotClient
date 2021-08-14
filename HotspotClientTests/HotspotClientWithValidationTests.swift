@@ -42,15 +42,21 @@ class HotspotClientWithValidationTests: XCTestCase {
     XCTAssertFalse(loader.loadTriggered)
   }
   
-  func test_connect_triggersSSIDLoader_onClientSuccess() {
+  func test_connect_deliversSuccess_onClientSuccess_andLoadedSSID() throws {
     let (sut, client, loader) = makeSUT()
+    let configuration = anyConfiguration
     client.complete(with: .success(()))
+    loader.complete(with: [configuration.ssid])
     
+    var result: HotspotClient.Result?
     let exp = expectation(description: "Waiting for connect")
-    sut.connect(with: anyConfiguration) { _ in exp.fulfill() }
+    sut.connect(with: configuration) { receivedResult in
+      result = receivedResult
+      exp.fulfill()
+    }
     wait(for: [exp], timeout: 1.0)
     
-    XCTAssertTrue(loader.loadTriggered)
+    XCTAssertNoThrow(try result?.get())
   }
 }
 
@@ -88,9 +94,19 @@ private extension HotspotClientWithValidationTests {
   
   class SSIDLoaderMock: SSIDLoader {
     var loadTriggered: Bool = false
+    var SSIDs: [String]?
     
     func load(completion: @escaping ([String]) -> Void) {
       loadTriggered = true
+      if let SSIDs = SSIDs {
+        completion(SSIDs)
+      } else {
+        completion([])
+      }
+    }
+    
+    func complete(with SSIDs: [String]) {
+      self.SSIDs = SSIDs
     }
   }
   

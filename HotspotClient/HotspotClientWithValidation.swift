@@ -19,12 +19,14 @@ class HotspotClientWithValidation {
 
 // MARK: - HotspotClient
 extension HotspotClientWithValidation: HotspotClient {
-  func connect(with cofiguration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
-    client.connect(with: cofiguration) { [weak self] result in
+  func connect(with configuration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
+    client.connect(with: configuration) { [weak self] result in
       switch result {
       case .success:
-        self?.ssidLoader.load { _ in }
-        completion(result)
+        self?.ssidLoader.load { SSIDs in
+          guard SSIDs.contains(configuration.ssid) else { return }
+          completion(.success(()))
+        }
         
       case .failure:
         completion(result)
