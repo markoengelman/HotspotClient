@@ -14,10 +14,13 @@ class HotspotClientWithValidationTests: XCTestCase {
     XCTAssertFalse(client.connectTriggered)
   }
   
-  func test_connect_triggers_client() {
+  func test_connect_hasNoSideEffectsOnConfiguration() {
     let (sut, client) = makeSUT()
-    sut.connect(with: anyConfiguration) { _ in }
-    XCTAssertTrue(client.connectTriggered)
+    let configuration = anyConfiguration
+    sut.connect(with: configuration) { _ in }
+    XCTAssertEqual(client.configuration?.password, configuration.password)
+    XCTAssertEqual(client.configuration?.ssid, configuration.ssid)
+    XCTAssertEqual(client.configuration?.isWEP, configuration.isWEP)
   }
   
   func test_disconnect_triggers_client() {
@@ -34,11 +37,12 @@ private extension HotspotClientWithValidationTests {
   }
   
   class HotspotClientMock: HotspotClient {
-    var connectTriggered: Bool = false
+    var configuration: HotspotConfiguration?
+    var connectTriggered: Bool { configuration != nil }
     var disconnectTriggered: Bool = false
     
-    func connect(with cofiguration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
-      connectTriggered = true
+    func connect(with configuration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
+      self.configuration = configuration
     }
     
     func disconnect(from SSID: String) {
