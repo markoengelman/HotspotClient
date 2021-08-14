@@ -14,6 +14,7 @@
 		53A44B9B26C714610044BD0C /* SSIDLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44B9A26C714610044BD0C /* SSIDLoader.swift */; };
 		53A44B9E26C7B6E60044BD0C /* SystemSSIDLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44B9D26C7B6E60044BD0C /* SystemSSIDLoaderTests.swift */; };
 		53A44BA226C7B7320044BD0C /* SystemSSIDLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44BA126C7B7320044BD0C /* SystemSSIDLoader.swift */; };
+		53A44BA526C7CB410044BD0C /* HotspotClientWithValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44BA426C7CB410044BD0C /* HotspotClientWithValidation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		53A44B9A26C714610044BD0C /* SSIDLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSIDLoader.swift; sourceTree = "<group>"; };
 		53A44B9D26C7B6E60044BD0C /* SystemSSIDLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSSIDLoaderTests.swift; sourceTree = "<group>"; };
 		53A44BA126C7B7320044BD0C /* SystemSSIDLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSSIDLoader.swift; sourceTree = "<group>"; };
+		53A44BA426C7CB410044BD0C /* HotspotClientWithValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotClientWithValidation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		53A44B7C26C6F5380044BD0C /* HotspotClient */ = {
 			isa = PBXGroup;
 			children = (
+				53A44BA426C7CB410044BD0C /* HotspotClientWithValidation.swift */,
 				53A44B9926C713BD0044BD0C /* HotspotClient */,
 				53A44B9C26C714850044BD0C /* SSIDLoader */,
 				53A44B7E26C6F5380044BD0C /* Info.plist */,
@@ -261,6 +264,7 @@
 				53A44B9B26C714610044BD0C /* SSIDLoader.swift in Sources */,
 				53A44B9526C6FCE40044BD0C /* HotspotClient.swift in Sources */,
 				53A44B9726C7070F0044BD0C /* HEHotspotClient.swift in Sources */,
+				53A44BA526C7CB410044BD0C /* HotspotClientWithValidation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
