@@ -41,6 +41,17 @@ class HotspotClientWithValidationTests: XCTestCase {
     
     XCTAssertFalse(loader.loadTriggered)
   }
+  
+  func test_connect_triggersSSIDLoader_onClientSuccess() {
+    let (sut, client, loader) = makeSUT()
+    client.complete(with: .success(()))
+    
+    let exp = expectation(description: "Waiting for connect")
+    sut.connect(with: anyConfiguration) { _ in exp.fulfill() }
+    wait(for: [exp], timeout: 1.0)
+    
+    XCTAssertTrue(loader.loadTriggered)
+  }
 }
 
 // MARK: - Private
