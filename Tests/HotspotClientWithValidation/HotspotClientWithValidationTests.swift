@@ -22,6 +22,7 @@ class HotspotClientWithValidationTests: XCTestCase {
     XCTAssertEqual(client.configuration?.password, configuration.password)
     XCTAssertEqual(client.configuration?.ssid, configuration.ssid)
     XCTAssertEqual(client.configuration?.isWEP, configuration.isWEP)
+    XCTAssertEqual(client.configuration?.joincOnce, configuration.joincOnce)
   }
   
   func test_disconnect_hasNoSideEffectsOnSSID() {
@@ -79,10 +80,6 @@ class HotspotClientWithValidationTests: XCTestCase {
 
 // MARK: - Private
 private extension HotspotClientWithValidationTests {
-  var anyConfiguration: HotspotConfiguration {
-    HotspotConfiguration(ssid: "anySSID", password: "anyPassword", isWEP: false)
-  }
-  
   var anyError: NSError {
     NSError(domain: "", code: 1, userInfo: nil)
   }

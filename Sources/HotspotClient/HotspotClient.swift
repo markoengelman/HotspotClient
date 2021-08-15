@@ -11,6 +11,14 @@ public struct HotspotConfiguration {
   public let ssid: String
   public let password: String
   public let isWEP: Bool
+  public let joincOnce: Bool
+  
+  public init(ssid: String, password: String, isWEP: Bool, joincOnce: Bool) {
+    self.ssid = ssid
+    self.password = password
+    self.isWEP = isWEP
+    self.joincOnce = joincOnce
+  }
 }
 
 public enum HotspotClientError: Error, Equatable {
