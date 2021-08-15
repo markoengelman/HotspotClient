@@ -18,6 +18,7 @@
 		53A44BA726C7CBA80044BD0C /* HotspotClientWithValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44BA626C7CBA80044BD0C /* HotspotClientWithValidationTests.swift */; };
 		53A44BA926C808620044BD0C /* HotspotClientValidationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44BA826C808620044BD0C /* HotspotClientValidationPolicy.swift */; };
 		53A44BAB26C808E00044BD0C /* HotspotClientValidationPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44BAA26C808E00044BD0C /* HotspotClientValidationPolicyTests.swift */; };
+		53DB2E9D26C9896300D38471 /* XCTest+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DB2E9C26C9892A00D38471 /* XCTest+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		53A44BA626C7CBA80044BD0C /* HotspotClientWithValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotClientWithValidationTests.swift; sourceTree = "<group>"; };
 		53A44BA826C808620044BD0C /* HotspotClientValidationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotClientValidationPolicy.swift; sourceTree = "<group>"; };
 		53A44BAA26C808E00044BD0C /* HotspotClientValidationPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotClientValidationPolicyTests.swift; sourceTree = "<group>"; };
+		53DB2E9C26C9892A00D38471 /* XCTest+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		53A44B8726C6F5380044BD0C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				53DB2E9C26C9892A00D38471 /* XCTest+Helpers.swift */,
 				536CA40026C812FA000B6A76 /* HotspotClientWithValidation */,
 				53A44B9F26C7B6EB0044BD0C /* HotspotClient */,
 				53A44BA026C7B6F20044BD0C /* SSIDLoader */,
@@ -301,6 +304,7 @@
 				53A44B9E26C7B6E60044BD0C /* SystemSSIDLoaderTests.swift in Sources */,
 				53A44BAB26C808E00044BD0C /* HotspotClientValidationPolicyTests.swift in Sources */,
 				53A44BA726C7CBA80044BD0C /* HotspotClientWithValidationTests.swift in Sources */,
+				53DB2E9D26C9896300D38471 /* XCTest+Helpers.swift in Sources */,
 				53A44B8926C6F5390044BD0C /* HEHotspotClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

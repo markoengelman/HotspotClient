@@ -80,10 +80,6 @@ class HotspotClientWithValidationTests: XCTestCase {
 
 // MARK: - Private
 private extension HotspotClientWithValidationTests {
-  var anyConfiguration: HotspotConfiguration {
-    HotspotConfiguration(ssid: "anySSID", password: "anyPassword", isWEP: false, joincOnce: true)
-  }
-  
   var anyError: NSError {
     NSError(domain: "", code: 1, userInfo: nil)
   }
