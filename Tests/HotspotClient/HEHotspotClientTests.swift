@@ -53,7 +53,7 @@ class HEHotspotClientTests: XCTestCase {
 // MARK: - Private
 private extension HEHotspotClientTests {
   var anyConfiguration: HotspotConfiguration {
-    HotspotConfiguration(ssid: "anySSID", password: "anyPassword", isWEP: false)
+    HotspotConfiguration(ssid: "anySSID", password: "anyPassword", isWEP: false, joincOnce: true)
   }
   
   func makeSUT(manager: NEHotspotConfigurationManager = .shared) -> NEHotspotClient {
