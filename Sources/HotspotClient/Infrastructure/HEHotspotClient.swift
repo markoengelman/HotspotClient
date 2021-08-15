@@ -28,6 +28,7 @@ public class NEHotspotClient {
 extension NEHotspotClient: HotspotClient {
   public func connect(with configuration: HotspotConfiguration, completion: @escaping (HotspotClient.Result) -> Void) {
     let hotspotConfiguration = NEHotspotConfiguration(ssid: configuration.ssid, passphrase: configuration.password, isWEP: configuration.isWEP)
+    hotspotConfiguration.joinOnce = configuration.joincOnce
     hotspotManager.apply(hotspotConfiguration) { error in
       completion(Result { if let error = error { throw Self.mapError(error: error as NSError) } })
     }
