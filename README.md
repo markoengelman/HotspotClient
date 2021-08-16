@@ -31,5 +31,5 @@ let configuration = HotspotConfiguration(
   joincOnce: true
 )
 
-validateyClient.connect(with: configuration) { result in }
+validatetClient.connect(with: configuration) { result in }
 ```
