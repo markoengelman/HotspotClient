@@ -4,4 +4,12 @@
 
 - Simple iOS framework that helps you connect iOS device to specific Wi-Fi network from you application.
 - Framework supports iOS from 11.0
-- Supports Swift Package Manager
+
+## Installation
+### Swift package manager
+
+```Swift
+dependencies: [
+  .package(url: "https://github.com/markoengelman/HotspotClient.git", .branch("main")
+]
+```
