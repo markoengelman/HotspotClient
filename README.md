@@ -28,8 +28,8 @@ let configuration = HotspotConfiguration(
   ssid: "anySSID", /* SSID of target network */
   password: "anyPassword", /* Passhprase of target network */
   isWEP: false, 
-  joincOnce: true
+  joinOnce: true
 )
 
-validatetClient.connect(with: configuration) { result in }
+validatedClient.connect(with: configuration) { result in }
 ```
