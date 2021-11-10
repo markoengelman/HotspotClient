@@ -22,7 +22,7 @@ class HotspotClientWithValidationTests: XCTestCase {
     XCTAssertEqual(client.configuration?.password, configuration.password)
     XCTAssertEqual(client.configuration?.ssid, configuration.ssid)
     XCTAssertEqual(client.configuration?.isWEP, configuration.isWEP)
-    XCTAssertEqual(client.configuration?.joincOnce, configuration.joincOnce)
+    XCTAssertEqual(client.configuration?.joinOnce, configuration.joinOnce)
   }
   
   func test_disconnect_hasNoSideEffectsOnSSID() {

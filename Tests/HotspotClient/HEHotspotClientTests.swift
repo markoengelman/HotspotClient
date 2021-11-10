@@ -10,6 +10,15 @@ import NetworkExtension
 @testable import HotspotClient
 
 class HEHotspotClientTests: XCTestCase {
+  @available(iOS 15, *)
+  func test_init_hasNoSideEffectsOn_iOS15Configuration() {
+    let sut = HotspotConfiguration(ssid: anyConfiguration.ssid, password: anyConfiguration.password, isWEP: anyConfiguration.isWEP)
+    XCTAssertEqual(sut.ssid, anyConfiguration.ssid)
+    XCTAssertEqual(sut.password, anyConfiguration.password)
+    XCTAssertEqual(sut.isWEP, anyConfiguration.isWEP)
+    XCTAssertEqual(sut.joinOnce, false)
+  }
+  
   func test_init_hasNoSideEffectsOnHotspotManger() {
     let manager = NEHotspotConfigurationManager()
     let sut = makeSUT(manager: manager)
