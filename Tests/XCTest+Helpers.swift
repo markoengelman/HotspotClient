@@ -10,6 +10,6 @@ import XCTest
 
 extension XCTest {
   var anyConfiguration: HotspotConfiguration {
-    HotspotConfiguration(ssid: "anySSID", password: "anyPassword", isWEP: false, joincOnce: true)
+    HotspotConfiguration(ssid: "anySSID", password: "anyPassword", isWEP: false, joinOnce: true)
   }
 }
